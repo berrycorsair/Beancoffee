@@ -4,7 +4,7 @@ import heroBeans from "../assets/hero-beans.png";
 import Buttom from "./ui/Button";
 import Badge from "./ui/Badge";
 
-const textVariants - {
+const textVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.12 } }
 };

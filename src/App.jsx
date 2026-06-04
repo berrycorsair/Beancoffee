@@ -21,7 +21,7 @@ export default function App() {
         </div>
       </section>
       
-      <RibbenTicker />
+      <RibbonTicker />
 
       {/* FEATURES / CAROUSEL */}
       <section className="features bg-features" id="shop">

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/Beans_logo";
-import Button from "./usButton";
+import logo from "../assets/Beans_logo.png";
+import Button from "./ui/Button";
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,15 +17,15 @@ export default function NavBar() {
 
     return (
         <motion.header
-        classNAme={`navbar ${scrolled ? "navbar-scrolled" : ""}`}
+        className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
-            <div className="mx-auto flex w-full max-w-7x1 items-center justify-between px-4 py-3
+            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3
             md:px-8">
                 {/* Brand */}
                 <a href="home" className="brand">
-                    <img src(logo) alt="Beans Place Logo" classNAme="logo h-12 w-auto md:h-14" />
+                    <img src={logo} alt="Beans Place Logo" className="logo h-12 w-auto md:h-14" />
                 </a>
 
                 {/* Desktop Nav */}
@@ -60,8 +60,8 @@ export default function NavBar() {
                         }`}
                         />
                     <span
-                        classNAme={`block h-0.5 w-6 bg-black transition-all duration-300 ${
-                            menuOpen ? "-translate-y-2 -roate-45" : ""
+                        className={`block h-0.5 w-6 bg-black transition-all duration-300 ${
+                            menuOpen ? "-translate-y-2 -rotate-45" : ""
                         }`}
                         />
                     </button>    
@@ -75,7 +75,7 @@ export default function NavBar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1}}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "eastInOut" }}>
+                            transition={{ duration: 0.3, ease: "easeInOut" }}>
                             <nav className="flex flex-col gap-4 px-6 pb-6 pt-2">
                                 <a href="#home" onClick={closeMenu} className="text-base font-semibold">
                                     Home
