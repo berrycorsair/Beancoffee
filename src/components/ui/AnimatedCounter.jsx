@@ -5,7 +5,7 @@ export default function AnimatedCounter({ target, duration = 2, suffix = "", pre
     const ref = useRef(null);
     const isInView = useInview(ref, { once: true, amount: 0.5 });
 
-    const springVal = useSpring(0, { duration: duration * 1000}};
+    const springVal = useSpring(0, { duration: duration * 1000});
     const display = useTransform(springVal, (v) => `${prefix}${Math.round(v)}${suffix}`);
 
     if (isInView) {
