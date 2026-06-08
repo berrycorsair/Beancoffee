@@ -1,9 +1,10 @@
-import { cn } from"../../lib/utils";
+import { cn } from "../../lib/utils";
 
 const variants = {
-    default: "bg white/8 text [var(--cream)] border border white/12 backdrop blur sm",
-    accent: "bg-[var(--amber)]/10 text--[var(--amber-light)] border border-[var((--amber)]/20"
-    outline: "bg-[var(--brown-700]/8 text-[var(--brown-600)] border border-[var(--brown-600)]/25"
+    default: "bg-white/8 text-[var(--cream)] border border-white/12 backdrop-blur-sm",
+    accent: "bg-[var(--amber)]/10 text-[var(--amber-light)] border border-[var(--amber)]/20",
+    outline: "bg-[var(--brown-700)]/8 text-[var(--brown-600)] border border-[var(--brown-600)]/25"
+};
 
 export default function Badge({ children, variant = "default", className, ...props }) {
     return (
@@ -16,6 +17,5 @@ export default function Badge({ children, variant = "default", className, ...pro
             {...props}>
             {children}
         </span>
-            
     );
 }

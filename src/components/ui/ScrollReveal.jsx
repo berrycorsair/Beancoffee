@@ -1,16 +1,16 @@
 import { useRef } from "react";
-import { motion, useInView} from "framer-motion";
-
+import { motion, useInView } from "framer-motion";
+ 
 const presets = {
-    fadeUp: { hidden: { opacity: 0, y: 40 }, visible: {opacity: 1, yL 0 } },
+    fadeUp: { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } },
     fadeDown: { hidden: { opacity: 0, y: -40 }, visible: { opacity: 1, y: 0 } },
     fadeLeft: { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } },
     fadeRight: { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } },
     fadeIn: { hidden: { opacity: 0 }, visible: { opacity: 1 } },
     scaleUp: { hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1 } },
-    slideUp: { hidden: {opacity: 0, y: 80 }, visible: { opacity: 1, y: 0 } }
+    slideUp: { hidden: { opacity: 0, y: 80 }, visible: { opacity: 1, y: 0 } }
 };
-
+ 
 export default function ScrollReveal({
     children,
     animation = "fadeUp",
@@ -25,9 +25,9 @@ export default function ScrollReveal({
     const ref = useRef(null);
     const isInView = useInView(ref, { once, amount });
     const preset = presets[animation] || presets.fadeUp;
-
+ 
     const Component = motion.create(as);
-
+ 
     return (
         <Component
             ref={ref}
@@ -43,10 +43,10 @@ export default function ScrollReveal({
             {...props}>
             {children}
         </Component>
-     );
-    }
-
-    export function StaggerContainer({
+    );
+}
+ 
+export function StaggerContainer({
     children,
     staggerDelay = 0.12,
     className,
@@ -56,7 +56,7 @@ export default function ScrollReveal({
 }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once, amount });
-
+ 
     return (
         <motion.div
             ref={ref}
@@ -65,22 +65,23 @@ export default function ScrollReveal({
             variants={{
                 hidden: {},
                 visible: { transition: { staggerChildren: staggerDelay } }
-             }}
+            }}
             className={className}
             {...props}>
             {children}
         </motion.div>
     );
 }
-
+ 
 export function StaggerItem({
     children,
     animation = "fadeUp",
+    duration = 0.5,
     className,
     ...props
 }) {
     const preset = presets[animation] || presets.fadeUp;
-
+ 
     return (
         <motion.div
             variants={preset}
@@ -88,6 +89,7 @@ export function StaggerItem({
             className={className}
             {...props}>
             {children}
-         </motion.div>
-     );
+        </motion.div>
+    );
 }
+ 
